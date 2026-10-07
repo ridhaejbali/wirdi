@@ -1,0 +1,88 @@
+/* وِردي — styles communs (page enseignant + application élève).
+   Couleurs reprises de la carte papier : vert (titres), rose (en-têtes), bleu (jours). */
+:root {
+  --bg: #F3F6F4; --surface: #FFFFFF; --ink: #16231C; --muted: #5D6B63; --line: #D8E0DB;
+  --green: #2E9E6B; --green-ink: #FFFFFF; --green-soft: #DDF3E7; --pink: #C92A62; --pink-soft: #FBE7EE;
+  --blue: #1E7FBF; --wa: #1FAF55; --today: #E9F7EF; --danger: #B3261E; --danger-soft: #FCE8E6;
+  --f-ui: "IBM Plex Sans Arabic", system-ui, "Segoe UI", Tahoma, sans-serif;
+  --f-quran: "Amiri", "Traditional Arabic", "Noto Naskh Arabic", serif;
+  --r: 14px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F1612; --surface: #18221C; --ink: #E6EEE9; --muted: #9DAEA4; --line: #2C3B32;
+    --green: #4FC48C; --green-ink: #06210F; --green-soft: #1B3D2C; --pink: #F07FA6; --pink-soft: #3A1F2A;
+    --blue: #6EBDF0; --wa: #3BDB78; --today: #1A3427; --danger: #F2B8B5; --danger-soft: #3B1F1D;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-ui); font-size: 16px; line-height: 1.5;
+  padding: env(safe-area-inset-top, 0) 0 env(safe-area-inset-bottom, 0);
+}
+.wrap { max-width: 640px; margin: 0 auto; padding: 16px 16px 110px; display: flex; flex-direction: column; gap: 14px; }
+h1 { font-size: 22px; margin: 0; text-wrap: balance; }
+h2 { font-size: 18px; margin: 0; }
+h3 { font-size: 16px; margin: 0; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+.small { font-size: 13.5px; }
+.quran { font-family: var(--f-quran); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card.soft { background: var(--green-soft); border-color: transparent; }
+.row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.row > .grow { flex: 1 1 auto; min-width: 0; }
+.k { color: var(--pink); font-weight: 700; }
+.ok { color: var(--green); font-weight: 700; }
+.err { color: var(--danger); }
+.errbox { background: var(--danger-soft); color: var(--danger); border-radius: 10px; padding: 10px 12px; }
+label { font-size: 14px; color: var(--muted); }
+input, select, textarea {
+  font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+  padding: 10px 12px; min-width: 0; width: 100%;
+}
+input[aria-invalid="true"] { border-color: var(--danger); background: var(--danger-soft); }
+button { font: inherit; cursor: pointer; }
+.btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 10px 16px; font-weight: 500; }
+.btn:hover { border-color: var(--green); }
+.btn.primary { background: var(--green); border-color: var(--green); color: var(--green-ink); font-weight: 700; }
+.btn.wa { background: var(--wa); border-color: var(--wa); color: #fff; font-weight: 700; }
+.btn.danger { color: var(--danger); }
+.btn.block { width: 100%; padding: 14px; font-size: 17px; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.link { border: 0; background: none; color: var(--green); font-weight: 700; padding: 6px 4px; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 3px 10px; font-size: 13px; background: var(--bg); border: 1px solid var(--line); }
+.chip.on { background: var(--green-soft); border-color: transparent; color: var(--ink); }
+.toast { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); left: 16px; right: 16px; max-width: 520px; margin: 0 auto;
+  background: var(--ink); color: var(--bg); border-radius: 12px; padding: 12px 16px; text-align: center; z-index: 50; }
+.stepper { display: inline-flex; align-items: center; gap: 8px; }
+.stepper button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-size: 20px; }
+.stepper b { min-width: 28px; text-align: center; font-size: 20px; font-variant-numeric: tabular-nums; }
+.verse-in { display: grid; grid-template-columns: 1fr 92px; gap: 8px; }
+.parts { display: flex; flex-direction: column; }
+.parts .p { display: grid; grid-template-columns: 28px 1fr auto; gap: 8px; align-items: baseline; padding: 7px 0; border-top: 1px solid var(--line); }
+.parts .p .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+.parts .p .t { font-family: var(--f-quran); font-size: 18px; }
+.parts .p .m { color: var(--muted); font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.days { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.day { display: grid; grid-template-columns: 92px 1fr 40px; gap: 6px; align-items: center; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+.day.is-today { background: var(--today); border-radius: 8px; }
+.day .dn { color: var(--blue); font-weight: 700; font-size: 15px; }
+.day .dd { color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.day .dw { text-align: center; font-family: var(--f-quran); font-size: 17px; }
+.day input[type="checkbox"] { width: 24px; height: 24px; accent-color: var(--green); justify-self: center; }
+.overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, .45); display: flex; align-items: flex-end; justify-content: center; z-index: 40; padding: 12px; }
+@media (min-width: 640px) { .overlay { align-items: center; } }
+.sheet { background: var(--surface); border-radius: 20px; padding: 18px; width: 100%; max-width: 560px; max-height: 92vh; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+.sheet .actions { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+.tablewrap { overflow-x: auto; }
+table.month { width: 100%; border-collapse: collapse; font-size: 14px; }
+table.month th, table.month td { border: 1px solid var(--line); padding: 5px 6px; text-align: center; }
+table.month th { background: var(--pink-soft); color: var(--pink); }
+table.month td.d { color: var(--blue); font-weight: 700; }
+table.month td.w { font-family: var(--f-quran); font-size: 16px; }
+@media (prefers-reduced-motion: no-preference) { .toast { animation: rise .2s ease-out; } @keyframes rise { from { transform: translateY(-10px); opacity: 0; } } }

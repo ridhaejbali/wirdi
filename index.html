@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>وِردي</title>
+<meta name="description" content="متابعة الورد اليومي من القرآن الكريم">
+<meta name="theme-color" content="#2E9E6B">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="وِردي">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Amiri:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/app.css">
+<style>
+  .nav { position: fixed; bottom: 0; left: 0; right: 0; display: flex; background: var(--surface); border-top: 1px solid var(--line);
+         padding: 6px 0 calc(8px + env(safe-area-inset-bottom, 0px)); z-index: 30; }
+  .nav button { flex: 1; border: 0; background: none; color: var(--muted); display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 13px; padding: 4px; }
+  .nav button[aria-current="page"] { color: var(--green); font-weight: 700; }
+  .nav svg { width: 24px; height: 24px; }
+  .hero { text-align: center; align-items: center; }
+  .date { color: var(--blue); font-weight: 700; font-size: 20px; }
+  .wird { font-family: var(--f-quran); font-size: clamp(26px, 8vw, 36px); font-weight: 700; line-height: 1.5; text-wrap: balance; }
+  .bar { height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--green); }
+  .mhead { display: flex; align-items: center; gap: 8px; }
+  .mhead h2 { flex: 1; text-align: center; color: var(--pink); }
+  .iconbtn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); width: 42px; height: 42px; border-radius: 50%; font-size: 20px; }
+  .iconbtn:disabled { opacity: .3; }
+  .sendbar { position: fixed; left: 0; right: 0; bottom: calc(66px + env(safe-area-inset-bottom, 0px)); padding: 0 16px; z-index: 20; }
+  .sendbar .btn { max-width: 608px; margin: 0 auto; display: block; width: 100%; box-shadow: 0 6px 18px rgba(0,0,0,.18); }
+</style>
+</head>
+<body>
+<main class="wrap" id="app"></main>
+<div id="extra"></div>
+<nav class="nav" id="nav" hidden></nav>
+<div id="layer"></div>
+<script src="js/core.js"></script>
+<script src="js/student.js"></script>
+<script>
+  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js");
+</script>
+</body>
+</html>
