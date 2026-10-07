@@ -143,7 +143,7 @@
 
   function viewWelcome() {
     return `<section class="card hero" style="margin-top:24px">
-        <img src="icons/icon-192.png" width="72" height="72" alt="" style="border-radius:18px">
+        <img src="icon-192.png" width="72" height="72" alt="" style="border-radius:18px">
         <h1>${t().welcome}</h1><p class="muted">${t().welcomeText}</p></section>
       ${linkErrorBox()}
       <section class="card"><label for="paste">${t().paste}</label>
@@ -322,7 +322,7 @@
 
   function loadPdfLib() {
     if (window.PDFLib) return Promise.resolve();
-    return new Promise((res, rej) => { const s = document.createElement("script"); s.src = "vendor/pdf-lib.min.js"; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+    return new Promise((res, rej) => { const s = document.createElement("script"); s.src = "pdf-lib.min.js"; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
   }
 
   async function sendSheet() {

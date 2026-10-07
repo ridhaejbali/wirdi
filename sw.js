@@ -1,8 +1,8 @@
 /* وِردي — service worker : l'application fonctionne hors ligne une fois ouverte.
  * Changez VERSION à chaque mise à jour du site pour que les téléphones récupèrent la nouvelle version. */
-const VERSION = "wirdi-v1";
-const SHELL = ["./", "index.html", "enseignant.html", "css/app.css", "js/core.js", "js/student.js", "js/teacher.js",
-  "vendor/pdf-lib.min.js", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png"];
+const VERSION = "wirdi-v2";
+const SHELL = ["./", "index.html", "enseignant.html", "app.css", "core.js", "student.js", "teacher.js",
+  "pdf-lib.min.js", "manifest.webmanifest", "icon-192.png", "icon-512.png"];
 
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));

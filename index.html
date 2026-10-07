@@ -7,14 +7,14 @@
 <meta name="description" content="متابعة الورد اليومي من القرآن الكريم">
 <meta name="theme-color" content="#2E9E6B">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="وِردي">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Amiri:wght@400;700&display=swap">
-<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="app.css">
 <style>
   .nav { position: fixed; bottom: 0; left: 0; right: 0; display: flex; background: var(--surface); border-top: 1px solid var(--line);
          padding: 6px 0 calc(8px + env(safe-area-inset-bottom, 0px)); z-index: 30; }
@@ -39,8 +39,8 @@
 <div id="extra"></div>
 <nav class="nav" id="nav" hidden></nav>
 <div id="layer"></div>
-<script src="js/core.js"></script>
-<script src="js/student.js"></script>
+<script src="core.js"></script>
+<script src="student.js"></script>
 <script>
   if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js");
 </script>
